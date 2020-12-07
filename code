@@ -1,0 +1,20 @@
+class RtoI:
+    def __init__(self, r):
+        self.roman = r
+        self.number = 0
+        
+    def conv(self):
+        x = self.roman
+        convert = {'I':1,'V': 5, 'X':10, 'L':50, 'C':100,'D':500,'M':1000}
+
+        for i in range(len(x)-1):
+            if(convert[x[i]]>=convert[x[i+1]]):
+                self.number+=convert[x[i]]
+            else:
+                self.number-=convert[x[i]]
+          
+        self.number+=convert[x[len(x)-1]]
+
+obj = RtoI('XCI')
+obj.conv()
+print(obj.number)
